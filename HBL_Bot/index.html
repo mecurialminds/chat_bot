@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>Chatbot</title>
+      <script type="text/javascript">
+         window.onload = function()
+         {
+          var divObject = document.getElementById('scroller');
+          if (divObject != null) {
+            divObject.scrollTop = divObject.scrollHeight;
+          }
+         }
+      </script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link rel="stylesheet" type="text/css" href="style.css">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://bots.mercurialminds.com/scripts/sdk.js"></script>
+      <script src="script.js"></script>
+      <script type="text/javascript">
+         window.alert = function(){};
+         var defaultCSS = document.getElementById('bootstrap-css');
+         function changeCSS(css){
+          if(css) $('head > link').filter(':first').replaceWith('<link rel="stylesheet" href="'+ css +'" type="text/css" />'); 
+          else $('head > link').filter(':first').replaceWith(defaultCSS); 
+         }
+         
+         
+      </script>
+      <style>
+         img.toolbar {
+         width:32px;
+         height:32px;
+         margin:1px;
+         padding:1px;
+         cursor: pointer;
+         vertical-align:middle;
+         border-style:solid;
+         border-width:1px;
+         border-color:#fff;
+         }
+         img.toolbar:hover {
+         border-color:#eee;
+         }
+         .panel-default{
+         border: 1px solid #25846a;
+         border-radius: 0px !important;
+         }
+         .top-bar{
+         background: #25846a !important;
+         color: #ffffff !important;
+         padding: 5px;
+         border-radius: 0px;
+         }
+         #scroller{
+         position: relative;
+         min-height: 280px;
+         overflow: hidden !important;
+         }
+         .chatbox_wrapper{
+         position: absolute;
+         bottom: 0px;
+         left: 0px;
+         background: #ffffff;
+         }
+         #scroller-wrap{
+         background: #ffffff !important;
+         overflow-y: auto;
+         height: 240px;
+         }
+         .btn-send{
+         background: url(images/send_btn.png);
+         background-repeat: no-repeat;
+         width: 40px;
+         height: 40px;
+         background-position: center;
+         border: 0px;
+         outline: none !important;
+         padding-right: 50px;
+         }
+         .chatbox_wrapper .input-group{
+         border-top: 1px solid #9a9a9a;
+         }
+         input.chat_input{
+         height: 40px;
+         border: 0px;
+         outline: none !important;
+         box-shadow: none !important;
+         }
+         .msg_sent{
+         background: #92c2b5;
+         border-radius: 10px;
+         box-shadow: none !important;
+         color: #000000;
+         }
+         .msg_receive{
+         background: #ebebeb;
+         border-radius: 10px;
+         box-shadow: none !important;
+         margin-left: 10px;
+         }
+         .msg_sent > time {
+         float: left;
+         }
+         ul.list-inline{
+         margin-bottom: 0px;
+         }
+         ul.list-inline a{
+         border: 0px;
+         }
+         ul.list-inline img{
+         border: 0px;
+         width: 20px;
+         height: 20px;
+         }
+         .panel-title{
+         padding-top: 3px;
+         }
+         .panel-title .fa{
+         color: #f7cb35;
+         font-size: 12px;
+         padding-right: 5px;
+         float: left;
+         margin-top: 3px;
+         margin-right: 5px;
+         }
+         .avatar{
+         max-width: 32px;
+         }
+         .avatar img{
+         width: auto !important;
+         margin-top: 2px;
+         }
+         #minim_chat_window{
+         padding: 0px !important;
+         color: #92c2b5;
+         top: -3px;
+         font-weight: normal;
+         }
+         body{    
+         background-image: url("images/bg-img.jpg");
+         background-color: #009999;
+         background-attachment: fixed;
+         background-repeat: no-repeat;
+         background-position: center;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <div class="row chat-window col-xs-5 col-md-3" id="chat_window_1" style="margin-left:10px;">
+            <div class="col-xs-12 col-md-12">
+               <div class="panel panel-default">
+                  <div class="panel-heading top-bar">
+                     <div class="col-md-4 col-xs-4">
+                        <h3 class="panel-title"><i class="fa fa-circle" aria-hidden="true"></i> Chatbot </h3>
+                     </div>
+                     <div class="col-md-8 col-xs-8" style="text-align: right;">
+                        <ul class="list-inline">
+                           <li><input id="speakinput" name="speak" type="checkbox" style="display:none" checked></li>
+                           <li><a onClick="return toggleSpeak();" href="#" title="Enable speech (speech requires an HTML5 audio supporting browser, such as Chrome or Firefox)">
+                              <img id="speak" class="toolbar" src="images/icon_audio.png">
+                              </a>
+                           </li>
+                           <li><a onClick="return toggleListen();" href="#" title="Enable speech recognition (browser must support HTML5 speech API, such as Chrome)"><img id="listen" class="toolbar" src="images/icon_mic_mute.png"></a></li>
+                           <li><a onclick="MaximizeChatWindow();" href="#"><img src="images/icon_maximize.png" style="width: 15px;"></a></li>
+                           <li><a href="#"><span id="minim_chat_window" class="glyphicon glyphicon-minus icon_minim"></span></a></li>
+                        </ul>
+                        <!-- <a href="https://bots.mercurialminds.com/chat?disconnect&proxy=1423247687153735773"><img class="toolbar" src="https://bots.mercurialminds.com/images/logout.png" title="Exit chat"></a> -->
+                     </div>
+                  </div>
+                  <div id="scroller" class="panel-body msg_container_base">
+                     <p id="response" hidden></p>
+                     <div id="scroller-wrap"></div>
+                     <div class="chatbox_wrapper">
+                        <div class="input-group">                            
+                           <input id="chat" type="text" class="form-control input-sm chat_input" placeholder="Ask me Something..." />
+                           <span class="input-group-btn">
+                           <button class="btn-send" id="send">Send</button>
+                           </span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <script type="text/javascript">
+                  SDK.applicationId = "7594789875752610230";
+                  var sdk = new SDKConnection();
+                  var web = new WebChatbotListener();
+                  web.connection = sdk;
+                  web.instance = '87222';
+                  web.instanceName = 'HBL Test Bot';
+                  $(document).ready(function () {
+                  		$('#chat').val('get greetings');
+                  		web.sendMessage();
+                   var interval = setInterval(function(){
+                      var response = document.getElementById('response').innerHTML;
+                      if(response != '<i>thinking</i>'){
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div></div>';
+                          $('#scroller-wrap').append(responseDiv);
+                          //Scroll to bottom of div element
+                          var scrollerWrap = document.getElementById("scroller-wrap");
+                          scrollerWrap.scrollTop = scrollerWrap.scrollHeight;
+                  
+                        clearInterval(interval);
+                      }
+                    }, 500);
+                     web.nativeVoice = true;
+                  web.nativeVoiceName = "Google हिन्दी";
+                  SDK.updateAvatar = function(responseMessage, speak, urlprefix, elementPrefix, channelaudio, afterFunction, nativeVoice, lang, voice) {
+                  try {
+                  
+                  var noMedia = false;
+                  if (SDK.canPlayVideo == null) {
+                  if (!SDK.isMobile()) {
+                  SDK.canPlayVideo = true;
+                  } else {
+                  SDK.canPlayVideo = false;
+                  SDK.canPlayAudio = true;
+                  // Check if auto play has been disable by the browser (mobile Chrome/Safari)
+                  setTimeout(function() {
+                  if (noMedia) {
+                  SDK.canPlayVideo = null;
+                  SDK.canPlayAudio = null;
+                  } else {
+                  if (SDK.canPlayVideo == false) {
+                  SDK.initVideo = function() {
+                  SDK.canPlayVideo = true;
+                  SDK.audio = new Audio(SDK.url + '/chime.mp3');
+                  SDK.audio.load();
+                  SDK.autoPlayActionAudio = new Audio(SDK.url + '/chime.mp3');
+                  SDK.autoPlayActionAudio.load();
+                  SDK.autoPlayBackgroundAudio = new Audio(SDK.url + '/chime.mp3');
+                  SDK.autoPlayBackgroundAudio.load();
+                  SDK.updateAvatar(responseMessage, speak, urlprefix, elementPrefix, channelaudio, afterFunction, nativeVoice, lang, voice);
+                  document.getElementById("sdkplaybutton2").style.display = "none";
+                  };
+                  var body = document.body || document.getElementsByTagName('body')[0];
+                  var playButton = document.createElement('div');
+                  var html = "<div id='sdkplaybutton2' style='position:fixed;bottom:32px;left:32px;z-index:164;'><img onclick='SDK.initVideo()' width='64' src='"
+                  + SDK.url + "/images/playsound.png'/></div>"
+                  playButton.innerHTML = html;
+                  body.appendChild(playButton);
+                  setTimeout(function() {
+                  document.getElementById("sdkplaybutton2").style.display = "none";
+                  }, 10000);
+                  }
+                  }
+                  }, SDK.autoPlayDelay);
+                  }
+                  }
+                  nativeVoice = nativeVoice && SDK.speechSynthesis;
+                  if (elementPrefix == null) {
+                  elementPrefix = "";
+                  }
+                  var avatarStatus = document.getElementById(elementPrefix + "avatar-status");
+                  if (avatarStatus != null) {
+                  var status = "";
+                  if (responseMessage.emote != null && responseMessage.emote != "" && responseMessage.emote != "NONE") {
+                  status = responseMessage.emote.toLowerCase();
+                  }
+                  if (responseMessage.action != null && responseMessage.action != "") {
+                  if (status != "") {
+                  status = status + " : ";
+                  }
+                  status = status + responseMessage.action;
+                  }
+                  if (responseMessage.pose != null && responseMessage.pose != "") {
+                  if (status != "") {
+                  status = status + " : ";
+                  }
+                  status = status + responseMessage.pose;
+                  }
+                  avatarStatus.innerHTML = status;
+                  }
+                  if (responseMessage.avatarActionAudio != null && speak) {
+                  var audio = SDK.autoPlayActionAudio;
+                  if (audio == null) {
+                  audio = new Audio(urlprefix + responseMessage.avatarActionAudio);
+                  } else {
+                  audio.src = urlprefix + responseMessage.avatarActionAudio;
+                  }
+                  if (SDK.canPlayVideo == null) {
+                  audio.onplaying = new function() {
+                  SDK.canPlayVideo = true;
+                  }
+                  }
+                  audio.play();
+                  }
+                  if (!speak || SDK.currentBackgroundAudio != responseMessage.avatarAudio) {
+                  // Only switch if different audio.
+                  if (SDK.backgroundAudio != null) {
+                  SDK.backgroundAudio.pause();
+                  SDK.currentBackgroundAudio = null;
+                  }
+                  if (responseMessage.avatarAudio != null && speak) {
+                  SDK.currentBackgroundAudio = responseMessage.avatarAudio;
+                  SDK.backgroundAudio = SDK.autoPlayBackgroundAudio;
+                  if (SDK.backgroundAudio == null) {
+                  SDK.backgroundAudio = new Audio(urlprefix + responseMessage.avatarAudio);
+                  } else {
+                  SDK.backgroundAudio.src = urlprefix + responseMessage.avatarAudio;
+                  }
+                  SDK.backgroundAudio.loop = true;
+                  if (SDK.canPlayVideo == null) {
+                  SDK.backgroundAudio.onplaying = new function() {
+                  document.getElementById("native-voice-name").value = "onplaying-back";
+                  SDK.canPlayVideo = true;
+                  }
+                  }
+                  SDK.backgroundAudio.play();
+                  }
+                  }
+                  if (responseMessage.avatarType != null && responseMessage.avatarType.indexOf("video") != -1) {
+                  var div = document.getElementById(elementPrefix + "avatar-image-div");
+                  if (div != null) {
+                  div.style.display = "none";
+                  }
+                  div = document.getElementById(elementPrefix + "avatar-video-div");
+                  var canvas = null;
+                  if (div != null) {
+                  div.style.display = "inline-block";
+                  if (responseMessage.avatarBackground != null) {
+                  div.style.backgroundImage = "url(" + urlprefix + responseMessage.avatarBackground + ")";
+                  }
+                  var canvasDiv = document.getElementById(elementPrefix + "avatar-canvas-div");
+                  if (((SDK.isChrome() && !SDK.isMobile()) || SDK.isFirefox() || SDK.useCanvas == true) && SDK.useCanvas != false && canvasDiv != null) {
+                  div.style.position = "fixed";
+                  div.style.top = "-1000";
+                  div.style.left = "-1000";
+                  div.style.opacity = "0";
+                  div.style.zIndex = "-1";
+                  canvasDiv.style.display = "inline-block";
+                  canvas = document.getElementById(elementPrefix + "avatar-canvas");
+                  }
+                  }
+                  var video = document.getElementById(elementPrefix + "avatar-video");
+                  if (video == null) {
+                  if (speak) {
+                  if (nativeVoice) {
+                  noMedia = true;
+                  SDK.tts(SDK.stripTags(responseMessage.message), null, true, lang, voice);
+                  } else {
+                  var audio = SDK.play(urlprefix + responseMessage.speech, channelaudio);
+                  var onended = audio.onended;
+                  audio.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  if (afterFunction != null) {
+                  afterFunction();
+                  }
+                  }
+                  }
+                  }
+                  return;
+                  } else {
+                  if (SDK.canPlayVideo == null) {
+                  video.onplaying = new function() {
+                  document.getElementById("native-voice-name").value = "onplaying-video";
+                  SDK.canPlayVideo = true;
+                  }
+                  }
+                  if (responseMessage.avatar.indexOf("mp4") != -1 && (SDK.isChrome() || SDK.isFirefox() || SDK.fixBrightness != true) && SDK.fixBrightness != false) {
+                  // Hack to fix grey background in Chrome.
+                  if (SDK.isChrome()) {
+                  video.style.webkitFilter = "brightness(108.5%)";
+                  } else {
+                  video.style["filter"] = "brightness(1.085)";
+                  }
+                  if (canvas != null) {
+                  if (SDK.isChrome()) {
+                  canvas.style.webkitFilter = "brightness(108.5%)";
+                  } else {
+                  video.style["filter"] = "brightness(1.085)";
+                  }
+                  }
+                  }
+                  if (canvas == null) {
+                  if (responseMessage.avatarBackground != null) {
+                  video.poster = urlprefix + responseMessage.avatarBackground;				
+                  }
+                  }
+                  }
+                  var context = null;
+                  var drawCanvas = null;
+                  if (canvas != null) {
+                  context = canvas.getContext('2d');
+                  if (SDK.timers[elementPrefix + "avatar-canvas"] == null) {
+                  drawCanvas = function() {
+                  if (!video.paused && !video.ended && video.currentTime > 0) {
+                  if (canvas.width != video.offsetWidth) {
+                  canvas.width = video.offsetWidth;
+                  }
+                  if (canvas.height != video.offsetHeight) {
+                  canvas.height = video.offsetHeight;
+                  }
+                  context.clearRect(0, 0, canvas.width, canvas.height);
+                  context.drawImage(video, 0, 0, video.offsetWidth, video.offsetHeight);
+                  }
+                  }
+                  SDK.timers[elementPrefix + "avatar-canvas"] = drawCanvas;
+                  setInterval(drawCanvas, 20);				
+                  }
+                  }
+                  var end = function() {
+                  video.src = urlprefix + responseMessage.avatar;
+                  if (responseMessage.avatar2 == null) {
+                  video.loop = true;
+                  } else {
+                  video.loop = false;
+                  video.onended = function() {
+                  var index = Math.floor(Math.random() * 5);
+                  if (index == 4 && responseMessage.avatar5 != null) {
+                  video.src = urlprefix + responseMessage.avatar5;
+                  } else if (index == 3 && responseMessage.avatar4 != null) {
+                  video.src = urlprefix + responseMessage.avatar4;
+                  } else if (index == 2 && responseMessage.avatar3 != null) {
+                  video.src = urlprefix + responseMessage.avatar3;
+                  } else if (index == 1 && responseMessage.avatar2 != null) {
+                  video.src = urlprefix + responseMessage.avatar2;
+                  } else {
+                  video.src = urlprefix + responseMessage.avatar;
+                  }
+                  video.play();
+                  }
+                  }
+                  video.play();
+                  if (afterFunction != null) {
+                  afterFunction();
+                  }
+                  }
+                  var talk = function() {
+                  if (responseMessage.message != null && responseMessage.message.length > 0) {
+                  if (responseMessage.avatarTalk != null) {
+                  if (speak) {
+                  if (responseMessage.speech == null && !nativeVoice) {
+                  end();
+                  } else {
+                  video.src = urlprefix + responseMessage.avatar;
+                  video.loop = true;
+                  var playing = false;
+                  video.play();
+                  
+                  if (nativeVoice) {
+                  if ('SpeechSynthesisUtterance' in window) {
+                  utterance = new SpeechSynthesisUtterance(SDK.stripTags(responseMessage.message));
+                  } else {
+                  utterance = new SpeechSynthesisUtterance2(SDK.stripTags(responseMessage.message));
+                  }
+                                SDK.utterance = utterance;
+                                SDK.utterance.rate = 0.7;
+                  utterance.onstart = function() {
+                  if (playing) {
+                  return false;
+                  }
+                  if ('speechSynthesis' in window) {
+                  speechSynthesis.pause();
+                  }
+                  video.src = urlprefix + responseMessage.avatarTalk;
+                  video.loop = true;
+                  video.oncanplay = function() {
+                  if (playing) {
+                  return false;
+                  }
+                  playing = true;
+                  if ('speechSynthesis' in window) {
+                  speechSynthesis.resume();
+                  }
+                  }
+                  video.play();
+                  }
+                  utterance.onerror = function() {
+                  console.log("error");
+                  end();
+                  }
+                  utterance.onend = function() {
+                  end();
+                  }
+                  
+                  SDK.nativeTTS(utterance, lang, voice);
+                  } else {
+                  //var audio = new Audio(urlprefix + responseMessage.speech, channelaudio);
+                  var audio = SDK.play(urlprefix + responseMessage.speech, channelaudio);
+                  //audio.onabort = function() {console.log("abort");}
+                  audio.oncanplay = function() {
+                  if (playing) {
+                  return false;
+                  }
+                  audio.pause();
+                  video.src = urlprefix + responseMessage.avatarTalk;
+                  video.loop = true;
+                  video.oncanplay = function() {
+                  if (playing) {
+                  return false;
+                  }
+                  playing = true;
+                  audio.play();
+                  }
+                  video.play();
+                  }
+                  audio.onerror = function() {
+                  console.log("error");
+                  end();
+                  }
+                  //audio.onloadeddata = function() {console.log("loadeddata");}
+                  //audio.onloadedmetadata = function() {console.log("loadedmetadata");}
+                  //audio.onpause = function() {console.log("pause");}
+                  //audio.onplay = function() {console.log("play");}
+                  //audio.onplaying = function() {console.log("playing");}
+                  //audio.ontimeupdate = function() {console.log("timeupdate");}
+                  var onended = audio.onended;
+                  audio.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  end();
+                  }
+                  audio.play();
+                  video.play();
+                  }
+                  }
+                  } else {
+                  video.src = urlprefix + responseMessage.avatarTalk;
+                  video.loop = false;
+                  video.play();
+                  var onended = video.onended;
+                  video.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  end();
+                  }
+                  }
+                  } else {
+                  video.src = urlprefix + responseMessage.avatar;
+                  video.loop = true;
+                  video.play();
+                  if (speak) {
+                  if (nativeVoice) {
+                  if ('SpeechSynthesisUtterance' in window) {
+                  utterance = new SpeechSynthesisUtterance(SDK.stripTags(responseMessage.message));
+                  } else {
+                  utterance = new SpeechSynthesisUtterance2(SDK.stripTags(responseMessage.message));
+                  }
+                  utterance.onend = afterFunction;
+                  SDK.nativeTTS(utterance, lang, voice);
+                  } else {
+                  var audio = SDK.play(urlprefix + responseMessage.speech, channelaudio);
+                  var onended = audio.onended;
+                  audio.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  if (afterFunction != null) {
+                  afterFunction();
+                  }
+                  }
+                  }
+                  } else if (afterFunction != null) {
+                  afterFunction();			
+                  }
+                  }
+                  } else {
+                  end();
+                  }
+                  }
+                  
+                  if (responseMessage.avatarAction != null) {
+                  video.src = urlprefix + responseMessage.avatarAction;
+                  video.loop = false;
+                  video.play();
+                  var onended = video.onended;
+                  video.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  talk();
+                  }
+                  } else {
+                  talk();
+                  }
+                  } else {
+                  var div = document.getElementById(elementPrefix + "avatar-video-div");
+                  if (div != null) {
+                  div.style.display = "none";
+                  }
+                  div = document.getElementById(elementPrefix + "avatar-canvas-div");
+                  if (div != null) {
+                  div.style.display = "none";
+                  }
+                  div = document.getElementById(elementPrefix + "avatar-image-div");
+                  if (div != null) {
+                  div.style.display = "inline-block";
+                  }
+                  var img = document.getElementById(elementPrefix + 'avatar');
+                  if (img != null) {
+                  img.src = urlprefix + responseMessage.avatar;
+                  }
+                  img = document.getElementById(elementPrefix + 'avatar2');
+                  if (img != null) {
+                  img.src = urlprefix + responseMessage.avatar;
+                  }
+                  if (speak && responseMessage.message != null && responseMessage.message.length > 0) {
+                  if (nativeVoice) {
+                  noMedia = true;
+                  SDK.tts(SDK.stripTags(responseMessage.message), null, true, lang, voice);
+                  } else if (responseMessage.speech != null) {
+                  var audio = SDK.play(urlprefix + responseMessage.speech, channelaudio);
+                  var onended = audio.onended;
+                  audio.onended = function() {
+                  if (onended != null) {
+                  onended();
+                  }
+                  if (afterFunction != null) {
+                  afterFunction();
+                  }
+                  }
+                  }
+                  } else {
+                  noMedia = true;
+                  if (afterFunction != null) {
+                  afterFunction();
+                  }
+                  }
+                  }
+                  
+                  } catch(err) {
+                  }
+                  }
+                  	});
+                  document.getElementById('chat').addEventListener('keypress', function(event) {
+                   if (event.keyCode == 13) {
+                     setSenderMessage();                        
+                     web.sendMessage();
+                     setReciverMessage();
+                  
+                     return false;
+                   }
+                  });
+                  
+                  function setSenderMessage(){
+                    var responseDiv = ' <div class="msg_container base_sent"><div class="col-md-9 col-xs-9"><div class="messages msg_sent"><p id="sender">'+document.getElementById('chat').value+'</p></div></div><div class="col-md-2 col-xs-2 avatar hide"><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive "></div></div>';
+                    $('#scroller-wrap').append(responseDiv);
+                    //Scroll to bottom of div element
+                    var scrollerWrap = document.getElementById("scroller-wrap");
+                    scrollerWrap.scrollTop = scrollerWrap.scrollHeight;
+                  
+                  }
+                  function setReciverMessage(){
+                    var interval = setInterval(function(){
+                      var response = document.getElementById('response').innerHTML;
+                      if(response != '<i>thinking</i>'){
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div></div>';
+                          $('#scroller-wrap').append(responseDiv);
+                          //Scroll to bottom of div element
+                          var scrollerWrap = document.getElementById("scroller-wrap");
+                          scrollerWrap.scrollTop = scrollerWrap.scrollHeight;
+                  
+                        clearInterval(interval);
+                      }
+                    }, 500);
+                  }
+                  document.getElementById('send').addEventListener('click', function(event) {
+                   if (true) {
+                     setSenderMessage();
+                     web.sendMessage();
+                     setReciverMessage();
+                     return false;
+                   }
+                  });
+                  SDK.lang = 'en';
+                  SDK.registerSpeechRecognition(document.getElementById('chat'), document.getElementById('send'));
+                  var listen = false;
+                  function toggleListen() {
+                    listen = !listen;
+                    if (listen) {
+                      SDK.startSpeechRecognition();
+                      document.getElementById('listen').src = "images/icon_mic.png";
+                    } else {
+                      SDK.stopSpeechRecognition();
+                      document.getElementById('listen').src = "images/icon_mic_mute.png";
+                    }
+                  }
+                  var speakinput = document.getElementById('speakinput');
+                  if (!speakinput.checked) {
+                    document.getElementById('speak').src = "images/icon_silent.png";
+                  }
+                  function toggleSpeak() {
+                    speakinput.checked = !speakinput.checked;
+                    if (speakinput.checked) {
+                      document.getElementById('speak').src = "images/icon_audio.png";
+                    } else {
+                      document.getElementById('speak').src = "images/icon_silent.png";
+                    }
+                  }
+                  
+                  function MaximizeChatWindow(){
+                    window.open("https://bots.mercurialminds.com/chat?&id=87011&embedded=true&showLink=false&application=7594789875752610230&background=%23fff&prompt=You+say&send=Send", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=500,width=800,height=800");
+                  }
+                  
+                  
+               </script>
+            </div>
+         </div>
+      </div>
+      </div>
+   </body>
+</html>
