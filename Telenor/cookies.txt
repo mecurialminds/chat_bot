@@ -1,0 +1,14 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CACHED_FRONT_FORM_KEY	DZ9cisHCchUsZ603
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CATEGORY_INFO	%7B%22m-layered%22%3A%221%22%7D
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	LAST_CATEGORY	116
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	frontend	g2106i98icu62civtjq4jovsu7
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CUSTOMER	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CUSTOMER_INFO	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CUSTOMER_AUTH	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CUSTOMER_RATES	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	CUSTOMER_SEGMENT_IDS	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	NEWMESSAGE	deleted
+www.telenor.com.pk	TRUE	/	FALSE	1999999999	VIEWED_PRODUCT_IDS	2073%2C1985%2C860%2C1253
+

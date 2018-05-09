@@ -1,0 +1,12 @@
+HTTrack3.49-2+htsswf+htsjava launched on Wed, 09 May 2018 09:57:04 at https://www.zong.com.pk/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +*
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f0#f -F "Mozilla/3.0 WebTV/1.2 (compatible; MSIE 2.0)" -%l "en, *" https://www.zong.com.pk/ -O1 "C:\Websites\Zong" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar +* )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:57:07	Warning: 	Link https://www.zong.com.pk/ not scanned (follow robots meta tag)
+
+HTTrack Website Copier/3.49-2 mirror complete in 3 seconds : 2 links scanned, 1 files written (71510 bytes overall) [15497 bytes received at 5165 bytes/sec], 71608 bytes transferred using HTTP compression in 2 files, ratio 20%
+(No errors, 1 warnings, 0 messages)

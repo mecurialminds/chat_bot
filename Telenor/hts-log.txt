@@ -1,0 +1,27 @@
+HTTrack3.49-2+htsswf+htsjava launched on Tue, 08 May 2018 17:06:14 at https://www.telenor.com.pk/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f0#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" https://www.telenor.com.pk/ -O1 "C:\My Web Sites\Telenor" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+17:06:16	Warning: 	Note: due to https://www.telenor.com.pk remote robots.txt rules, links beginning with these path will be forbidden: /CVS, /*.svn$, /*.idea$, /*.sql$, /*.tgz$, /admin/, /app/, /downloader/, /errors/, /includes/, /lib/, /pkginfo/, /shell/, /var/, /api.php, /cron.php, /cron.sh, /error_log, /get.php, /install.php, /LICENSE.html, /LICENSE.txt, /LICENSE_AFL.txt, /README.txt, /RELEASE_NOTES.txt, /*?dir*, /*?dir=desc, /*?dir=asc, /*?limit=all, /*?mode*, /*?SID=, /checkout/, /onestepcheckout/, /customer/, /customer/account/, /customer/account/login/, /catalogsearch/, /catalog/product_compare/, /catalog/category/view/, /catalog/product/view/, /cgi-bin/, /cleanup.php, /apc.php, /memcache.php, /phpinfo.php (see in the options to disable this)
+17:30:01	Error: 	"Bad Request" (400) at link www.googletagmanager.com/gtm.js?id= (from https://www.telenor.com.pk/)
+17:43:54	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://www.telenor.com.pk/convert-to-telenor (from https://www.telenor.com.pk/)
+17:43:54	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://www.telenor.com.pk/telenor-business/international/business-international-roaming (from https://www.telenor.com.pk/)
+17:44:04	Warning: 	Retry after error -2 (Receive Time Out) at link https://www.telenor.com.pk/personal/telenor/international-roaming (from https://www.telenor.com.pk/)
+17:44:04	Warning: 	Retry after error -2 (Receive Time Out) at link https://www.telenor.com.pk/help-support/utilities/telenor-bundle-calculator (from https://www.telenor.com.pk/)
+17:44:06	Warning: 	Retry after error -2 (Receive Time Out) at link https://www.telenor.com.pk/personal/internet/4g-internet/mehran-internet-offer (from https://www.telenor.com.pk/)
+17:44:08	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://www.telenor.com.pk/personal/djuice/djuice-top-offers (from https://www.telenor.com.pk/)
+17:44:56	Warning: 	Retry after error -2 (Receive Time Out) at link https://www.telenor.com.pk/personal/djuice/packages (from https://www.telenor.com.pk/)
+17:51:19	Warning: 	Retry after error -5 (error:00000005:lib(0):func(0):DH lib) at link https://www.telenor.com.pk/personal/djuice/get-djuice-sim (from https://www.telenor.com.pk/)
+17:56:03	Error: 	Exit requested by shell or user
+17:56:04	Error: 	Exit requested by shell or user
+
+HTTrack Website Copier/3.49-2 mirror complete in 49 minutes 50 seconds : 1203 links scanned, 1122 files written (124069234 bytes overall) [36399624 bytes received at 12173 bytes/sec], 110215940 bytes transferred using HTTP compression in 1048 files, ratio 15%, 4.6 requests per connection
+(3 errors, 9 warnings, 0 messages)
+* * MIRROR ABORTED! * *
+The current temporary cache is required for any update operation and only contains data downloaded during the present aborted session.
+The former cache might contain more complete information; if you do not want to lose that information, you have to restore it and delete the current cache.
+This can easily be done here by erasing the hts-cache/new.* files]

@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+09:57:06	98/98	---M-Z	200	added ('OK')	text/plain	etag:%22b412d2-58-54792383ef280-gzip%22	https://www.zong.com.pk/robots.txt		(from )
+09:57:07	71510/71510	---M-Z	200	added ('OK')	text/html	date:Wed,%2009%20May%202018%2004:57:06%20GMT	https://www.zong.com.pk/	C:/Websites/Zong/www.zong.com.pk/index.html	(from )
