@@ -1,0 +1,52 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.jazz.com.pk	TRUE	/	FALSE	1999999999	PHPSESSID	50ofur0l2fk9kbe7dh73hj82u5
+.facebook.com	TRUE	/	FALSE	1999999999	fr	0K1F9fpoyyqbcJFU7..Ba8oGw...1.0.Ba8oGw.
+www.jazzcash.com.pk	TRUE	/	FALSE	1999999999	name	value
+jobs.jazz.com.pk	TRUE	/	FALSE	1999999999	PHPSESSID	4hia0r7j3n1ls9fad2jp73e530
+.rozee.pk	TRUE	/	FALSE	1999999999	accept_cookies	yes
+.rozee.pk	TRUE	/	FALSE	1999999999	rzsessNP	deleted
+jobs.jazz.com.pk	TRUE	/	FALSE	1999999999	SEEKR_SES_ID	3196007013.1.61355176.2795929824
+.twitter.com	TRUE	/	FALSE	1999999999	_mobile_sess	BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7ADoQX2NzcmZfdG9rZW4iLTRmOTkwZGUyYWJkNjhhMzc2ZTMzY2YwMTMzNjE4NjliZjg3Nzk3ODU%3D--fe3a2e27ee8449965678dc3482878a4a163cae34
+.twitter.com	TRUE	/	FALSE	1999999999	d	32
+.twitter.com	TRUE	/	FALSE	1999999999	mobile_metrics_token	152584255231843072
+.twitter.com	TRUE	/	FALSE	1999999999	zrca	5
+.linkedin.com	TRUE	/	FALSE	1999999999	lidc	b=SGST01:g=3:u=1:i=1525842580:t=1525928980:s=AQH1vnEu4b2oejtRGAaFekWBcOw6VwBT"
+.youtube.com	TRUE	/	FALSE	1999999999	PREF	f1=50000000
+.youtube.com	TRUE	/	FALSE	1999999999	YSC	iJpT1WBpCQ8
+.youtube.com	TRUE	/	FALSE	1999999999	GPS	1
+.youtube.com	TRUE	/	FALSE	1999999999	VISITOR_INFO1_LIVE	hxjUh-O9C9I
+www.instagram.com	TRUE	/	FALSE	1999999999	rur	ASH
+www.instagram.com	TRUE	/	FALSE	1999999999	csrftoken	lHrzHS7DqVAR0EBuUu1phGXmD2bkzbxd
+www.instagram.com	TRUE	/	FALSE	1999999999	mid	WvKClwAEAAGYcDUjAS1lu4rRw5wH
+www.instagram.com	TRUE	/	FALSE	1999999999	urlgen	{\"time\": 1525842583}:1fGHMF:aFTvx_1_1XITuCfYUQNJR28ENVs"
+www.dailymotion.com	TRUE	/	FALSE	1999999999	clsu	1
+.dailymotion.com	TRUE	/	FALSE	1999999999	dmvk	5af2829e8344d
+www.dailymotion.com	TRUE	/	FALSE	1999999999	_csrf/link	bV73pJzh0RryuDv-Y4hJXCAancrHjy_rGBzJlO0cT8M
+.dailymotion.com	TRUE	/	FALSE	1999999999	ts	807775
+.dailymotion.com	TRUE	/	FALSE	1999999999	v1st	61797B387255AC805F5534026FEE07B9
+.google.com	TRUE	/	FALSE	1999999999	NID	129=PmQEhxL0tsdqpfF-q5zO-k3sdzesfOBogHGtGGWsOidW4aAb91AWdh6GTScqjjlCsk7tDnwkX7H3H8Hbyxo4aIWvhtBSlnpWABNmclVdaXUxyXsBrxCXtaav69-HypMp
+www.ding.com	TRUE	/	FALSE	1999999999	ASP.NET_SessionId	hnzkdrdqwvljeeuczucwfht3
+www.ding.com	TRUE	/	FALSE	1999999999	eze_track	firstVisit=2018-05-09 05:25:56&sessionsCount=1&previousVisit=&lastVisit=2018-05-09 05:25:56
+www.ding.com	TRUE	/	FALSE	1999999999	dnanon	0d7cad8d-91a4-478b-a28e-1f19e3667977
+www.ding.com	TRUE	/	FALSE	1999999999	t_t	rum=New Relic
+.ding.com	TRUE	/	FALSE	1999999999	visid_incap_65714	zen4L+rIQoCvkGnLFhnYPWOG8loAAAAAQUIPAAAAAABAeg3zCeM0XtZIsKPxYXJj
+.ding.com	TRUE	/	FALSE	1999999999	incap_ses_962_65714	JhIbb/fvFTIJubNfL7ZZDWWG8loAAAAAjnEVXk8buj9JpShePhrP9Q==
+www.ding.com	TRUE	/	FALSE	1999999999	___utmvmcfusILZ	NramLGjhoNs
+www.ding.com	TRUE	/	FALSE	1999999999	___utmvacfusILZ	GKDTxLa
+www.ding.com	TRUE	/	FALSE	1999999999	___utmvbcfusILZ	DZp
+www.etopuponline.com	TRUE	/	FALSE	1999999999	ARRAffinity	384f8b19a073ec9f4d09209e66bea17ccea8cc9be2d453a6464a9f79568bb139
+ecare.jazz.com.pk	TRUE	/	FALSE	1999999999	JSESSIONID	49A1D1B5C0320A11A084E45169991998.node11
+schema.org	TRUE	/	FALSE	1999999999	GOOGAPPUID	20180402t222137
+.twitter.com	TRUE	/	FALSE	1999999999	fm	0
+.twitter.com	TRUE	/	FALSE	1999999999	_twitter_sess	BAh7CSIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%250ASGFzaHsABjoKQHVzZWR7ADoPY3JlYXRlZF9hdGwrCMfjX0NjAToMY3NyZl9p%250AZCIlODRkZWM1NDRkYWVmZjQ0NDQ0NWRhZWFhZDVhZWZjZWM6B2lkIiU4YzI5%250AMTQ2MWE1MjY0YzM0ZmQ3OWZkOGM2YmIzMGU5NQ%253D%253D--a9a28fa7f3e8857237eff90d2845bc7ad86a3f9c
+.twitter.com	TRUE	/	FALSE	1999999999	personalization_id	v1_16sW4/e/8syqoEk/iobB8A=="
+.twitter.com	TRUE	/	FALSE	1999999999	guest_id	v1%3A152584374777901213
+.twitter.com	TRUE	/	FALSE	1999999999	external_referer	ZLhHHTiegr9r4r3qhSS4iKKx9DLzAnE1G7qBSSejqYVQZTNzds4U1FRsIEUHd1rF2u2Ebl9MjLc%3D|0|8e8t2xd8A2w%3D
+.twitter.com	TRUE	/	FALSE	1999999999	ct0	95dcc05a999cd13dd01a47428a614808
+.www.linkedin.com	TRUE	/	FALSE	1999999999	JSESSIONID	ajax:4167138713778872311
+linkedin.com	TRUE	/	FALSE	1999999999	lang	v=2&lang=en-us
+.linkedin.com	TRUE	/	FALSE	1999999999	bcookie	v=2&a5b96acd-3387-4950-8052-0c43ad689842"
+.www.linkedin.com	TRUE	/	FALSE	1999999999	bscookie	v=1&201805090529096d4cdbe5-4e29-4392-83a6-f31dd82923fdAQGRAcscKz5UMqFTERzvJOjiJJ30lqWL"
+www.jazz.com.pk	TRUE	/	FALSE	1999999999	name	value
+

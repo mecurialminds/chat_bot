@@ -1,0 +1,174 @@
+@import url('../../../../../../fonts.googleapis.com/css5d2a.css?family=Lato');
+body,html{
+	padding:0;
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+	overflow-x: hidden;	
+}
+
+#j4g-bg-one{
+	background-image: url(../images/sec-1-bg.png);
+	background-color: #fff;
+	width: 100%;
+	background-repeat: no-repeat;
+	background-size: 100%;float: left;
+	
+}
+#j4g-bg-one img{}
+.right-text{
+	width: 450px;
+	margin: 50px auto;
+}
+.right-text p{
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: 300;
+}
+.left-text p{
+	font-family: 'Lato', sans-serif;
+	font-size: 24px;
+	font-weight: 300;
+}
+#j4g-bg-two{
+	background-image: url(../images/sc-2-bg.png);
+	width: 100%;
+	background-repeat: no-repeat; height:623px; background-position:center top; float:left; margin-top: -111px;}
+.right-text-1{ width:100%; height:auto; float: left; background-image:url(../images/1st-sc-bg.png); margin: 70px 0;}
+.right-text-1 p{font-family: 'Lato', sans-serif;
+    font-size: 24px;
+    width: 80%;
+    color: #000;
+    font-weight: 400;
+    margin: 20px 0;
+    line-height: 27px;}
+.left-txtsc-2{ width: 100%;
+    height: auto;
+    float: left;
+    margin: 180px 0 0 0;
+    float: left;
+    text-align: center;}
+.j4g-cntr{background-image: url(../images/jazz-4g-thre-bg.png);
+    width: 100%;
+    margin: 40px auto;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center top;
+}
+.j4g-cntr img{margin-top:69px;}
+.left-txtsc-2 p{font-family: 'Lato', sans-serif; font-size:22px; width:73%; color:#fff; font-weight:400; margin: 20px 8.5%; line-height:24px;}
+.rgt-char-sc2{ position:relative; width:100%; height:auto; float:left;}
+.rgt-char-sc2 img{ position: absolute; top: -15px;}
+.join-jazz h3{font-size: 24px; font-family: 'Lato', sans-serif;}
+.join-jazz {    
+	margin: 20px auto;
+    float: left;
+    width: 100%;
+    text-align: center;}
+.trm-cndi h2{font-family: 'Lato', sans-serif; color:#cf0000;}
+#term-cond{background:url(../images/body-bg.png); width:100%; float: left; padding:20px 0 50px 0;}
+.vid-banner{ width:100%; height:auto; float:left;}
+.show-mb{ display:none !important}
+@media (max-width: 767px) {
+#j4g-bg-one img {
+    margin: 0 auto;}	
+.show-mb{ display:block !important}
+.right-text-1 p {
+	font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    width: 100%;
+    color: #000;
+    font-weight: 600;
+    margin: 20px 0;
+    line-height: 20px;
+    text-align: center;}
+.right-text-1 {
+    width: 90%;
+    height: auto;
+    float: left;
+    background-image: none;
+    margin: 70px 5% 0;
+}
+.left-txtsc-2 img{ width:90%; margin-left:5%;}
+.left-txtsc-2 p {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    width: 90%;
+    color: #fff;
+    font-weight: 600;
+    margin: 20px 5%;
+}
+.rgt-char-sc2 img {
+    position: relative;
+    top: 0;
+    width: 90%;
+    margin: 0 5%;
+}
+.join-jazz img{ width:90%; margin-left:5%; margin-top: 45px;}
+.join-jazz {
+    margin: 30px auto 0px;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
+.j4g-cntr {
+    background-image: url(../images/jazz-4g-thre-bg.png);
+    width: 100%;
+    margin: 10px auto 0;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center top;
+}
+.trm-cndi h2 {
+    font-family: 'Lato', sans-serif;
+    color: #cf0000;
+    width: 90%;
+    margin: 0 5%;
+}
+.trm-cndi ul{ width:90%; height: auto; float:left; margin-top:30px;}
+.join-jazz h4{ margin-top:20px;}
+#j4g-bg-two {
+    background-image: url(../images/sc-2-bg.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    background-position: center top;
+    float: left;
+	margin-top: 50px;
+    background-size: 100% 100%; background-color:#000;
+}
+.left-txtsc-2 {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 50px 0 0 0;
+    float: left;
+    text-align: center;
+}
+
+	
+	
+	
+	
+	
+	
+	}
+	@media (min-width: 1440px) {
+		
+		#wkly-mnth img{ width:100%;}
+		#j4g-bg-two {
+    background-image: url(../images/sc-2-bg.png);
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 623px;
+    background-position: center top;
+    float: left;
+    margin-top: -111px;
+    background-size: cover;
+}
+		
+		
+		
+		
+		
+		
+		}
