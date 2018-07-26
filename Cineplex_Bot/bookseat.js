@@ -1,23 +1,37 @@
+var seatCount = 0;
+var bookseats = [];
 function render_seatMap() {
 
 	console.log("Hi");
 }
-
-function getvalue(id,row,seat){
-
-	console.log(id);
-	var cv = $('#' + id).attr('class');
-	$('#' + id).toggleClass('cp-available-seat cp-selected-seat');
-	console.log(cv);
-	test();
+function removeA(arr) {
+    var what, a = arguments, L = a.length, ax;
+    while (L > 1 && arr.length) {
+        what = a[--L];
+        while ((ax= arr.indexOf(what)) !== -1) {
+            arr.splice(ax, 1);
+        }
+    }
+    return arr;
 }
-$(document).ready(function() {
+function getvalue(x,row,seat){
 
-	console.log($('#div-seats').html());
-    $.ajax({
-        url: "http://35.196.218.1:3000/seats?id=1&date=2018-07-24&row=E"
-    }).then(function(data) {
-       $('.greeting-id').append(data.id);
-       $('.greeting-content').append(data.content);
-    });
-});
+	console.log(x.id);
+	var divclass = $(x).attr('class');
+	if(divclass == "cp-available-seat") {
+		if(seatCount > 0){
+			$(x).toggleClass('cp-available-seat cp-selected-seat');
+			bookseats.push(row + '-' + seat);
+			seatCount--;
+		}else{
+			window.alert("You have already selected Maximum seats.");
+		}
+	}else if(divclass == "cp-selected-seat"){
+		removeA(bookseats, row + '-' + seat);
+		seatCount++;
+		$(x).toggleClass('cp-available-seat cp-selected-seat');
+	}else{
+		$(x).toggleClass('cp-available-seat cp-selected-seat');
+	}
+	console.log(divclass);
+}
