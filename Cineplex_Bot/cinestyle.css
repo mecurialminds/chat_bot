@@ -138,3 +138,7 @@ ul, li {
     background: url(images/sold-seat.png) 0 0 no-repeat;
 	background-size: contain;
 }
+li span {
+    font-size: x-small;
+    vertical-align: bottom;
+}
