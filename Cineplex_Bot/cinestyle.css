@@ -1,6 +1,9 @@
 .cp-select-your-seat {
-    background: url(images/seatlayout-bg.png) center bottom no-repeat;
+    /*background: url(images/seatlayout-bg.png) center bottom no-repeat;*/
     margin: 0 0 25px;
+}
+.mscreen{
+	background: url(images/seatlayout-bg.png) center bottom no-repeat;
 }
 .mCustomScrollbar.mCS_no_scrollbar {
     -ms-touch-action: auto;
@@ -59,14 +62,16 @@ ul, li {
     list-style: none;
 }
 .cp-select-your-seat .cp-select-seat li.cp-alpha-seat {
-    font: 12px 'signikabold';
-    color: #000;
-    text-transform: uppercase;
+       text-transform: uppercase;
     background: none;
-    line-height: 16px;
+    /* line-height: 16px; */
+    font-weight: 800;
+    font-size: 15px;
+    color: #797979;
+    line-height: 28px;
 }
 .cp-select-your-seat .cp-select-seat li {
-    width: 5%;
+    width: 6%;
     height: 20px;
     display: inline-block;
     text-align: center;
@@ -79,8 +84,11 @@ ul, li {
     list-style: none;
 }
 .cp-select-your-seat .cp-select-seat li.cp-available-seat {
-    background: url(images/available-seat.png) 0 0 no-repeat;
-	background-size: contain;
+    /*background: url(images/available-seat.png) 0 0 no-repeat;
+	background-size: contain;*/
+	background-color: #ff3636;
+    color: white;
+    line-height: 23px;
 }
 .cp-select-your-seat .cp-select-seat li {
     width: 26px;
@@ -96,15 +104,8 @@ ul, li {
     padding: 0;
     list-style: none;
 }
-.cp-select-your-seat .cp-select-seat li.cp-alpha-seat {
-    font: 12px 'signikabold';
-    color: #000;
-    text-transform: uppercase;
-    background: none;
-    line-height: 16px;
-}
 .cp-select-your-seat .cp-select-seat li {
-    width: 5%;
+    width: 6%;
     height: 20px;
     display: inline-block;
     text-align: center;
@@ -131,14 +132,49 @@ ul, li {
     opacity: 0.75;
 }
 .cp-select-your-seat .cp-select-seat li.cp-selected-seat {
-    background: url(images/selected-seat.png) 0 0 no-repeat;
-	background-size: contain;
+    /*background: url(images/selected-seat.png) 0 0 no-repeat;
+	background-size: contain;*/
+	background-color: #02c318;
+    color: white;
+    line-height: 23px;
 }
 .cp-select-your-seat .cp-select-seat li.cp-sold-seat {
-    background: url(images/sold-seat.png) 0 0 no-repeat;
-	background-size: contain;
+    /*background: url(images/sold-seat.png) 0 0 no-repeat;
+	background-size: contain;*/
+	background-color: #474747;
+    color: #7e7e7e;
+    line-height: 23px;
 }
 li span {
-    font-size: x-small;
+    font-size: 14px;
     vertical-align: bottom;
+}
+
+@media (min-width: 1900px){
+	.cp-select-your-seat .cp-select-seat li {
+    width: 6%;
+    height: 27px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+li span {
+    font-size: 14px;
+    vertical-align: middle;
+}
+}
+@media (min-width: 992px) and (max-width: 1519px) {
+	.cp-select-your-seat .cp-select-seat li {
+    width: 6%;
+    height: 27px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+li span {
+    font-size: 14px;
+    vertical-align: middle;
+}
 }
