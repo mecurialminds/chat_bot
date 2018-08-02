@@ -703,6 +703,7 @@
 								seats = seats.split(',');
 								for(var j=0; j<11;j++){
 									var selector = '#' + rows[i] + '-' + seats[j];
+									$(selector).removeClass('cp-selected-seat');
 									$(selector).removeClass('cp-sold-seat');
 									$(selector).addClass('cp-available-seat');
 									$(selector).attr('onClick','getvalue(this,"'+rows[i]+'",'+seats[j]+')');
