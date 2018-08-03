@@ -193,6 +193,15 @@
                   </div>
                </div>
                <script type="text/javascript">
+			   
+				function getCurrentTime() {
+					var d = new Date();
+					var h = d.getHours();
+					var min = d.getMinutes();
+					var sec = d.getSeconds();
+					var time = "" + h + ":" + min + ":" + sec;
+					return time;
+				}
                   SDK.applicationId = "7594789875752610230";
                   var sdk = new SDKConnection();
                   var web = new WebChatbotListener();
@@ -209,7 +218,7 @@
                    var interval = setInterval(function(){
                       var response = document.getElementById('response').innerHTML;
                       if(response != '<i>thinking</i>'){
-                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">3:36 PM</p></div>';
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">'+getCurrentTime()+'</p></div>';
                           $('#scroller-wrap').append(responseDiv);
                           //Scroll to bottom of div element
                           var scrollerWrap = document.getElementById("scroller-wrap");
@@ -664,7 +673,7 @@
                     var interval = setInterval(function(){
                       var response = document.getElementById('response').innerHTML;
                       if(response != '<i>thinking</i>'){
-                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">3:36 PM</p></div>';
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">'+getCurrentTime()+'</p></div>';
                           $('#scroller-wrap').append(responseDiv);
                           //Scroll to bottom of div element
                           var scrollerWrap = document.getElementById("scroller-wrap");
@@ -700,8 +709,9 @@
                     document.getElementById('speak').src = "images/icon_silent.png";
                   }
                   function toggleSpeak() {
-                    speakinput.checked = !speakinput.checked;
-                    if (speakinput.checked) {
+                    //speakinput.checked = !speakinput.checked;
+					web.toggleSpeak();
+                    if (web.speak) {
                       document.getElementById('speak').src = "images/icon_audio.png";
                     } else {
                       document.getElementById('speak').src = "images/icon_silent.png";
