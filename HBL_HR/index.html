@@ -216,7 +216,7 @@
                       }
                     }, 500);
                      web.nativeVoice = true;
-                  web.nativeVoiceName = "Google English";
+                  web.nativeVoiceName = "Google UK English Female";
                   SDK.updateAvatar = function(responseMessage, speak, urlprefix, elementPrefix, channelaudio, afterFunction, nativeVoice, lang, voice) {
                   try {
                   
@@ -697,8 +697,9 @@
                     document.getElementById('speak').src = "images/icon_silent.png";
                   }
                   function toggleSpeak() {
-                    speakinput.checked = !speakinput.checked;
-                    if (speakinput.checked) {
+                    //speakinput.checked = !speakinput.checked;
+					web.toggleSpeak();
+                    if (web.speak) {
                       document.getElementById('speak').src = "images/icon_audio.png";
                     } else {
                       document.getElementById('speak').src = "images/icon_silent.png";
