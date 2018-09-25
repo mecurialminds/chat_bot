@@ -94,8 +94,8 @@
          background: #008269;
          border-radius: 13px 13px 5px 13px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            /*border: 1px solid rgba(0,0,0,.2);*/
-         color: #ffffff;
+         color: #fff;
+		 float: right;
          }
          .msg_receive{
          background: #ffffff;
@@ -103,7 +103,7 @@
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             /*border: 1px solid rgba(0,0,0,.2);*/
          margin-left: 10px;
-            color: #333333;
+           // color: #333333;
          }
          .msg_sent > time {
          float: left;
@@ -135,7 +135,8 @@
          }
          .avatar img{
          width: auto !important;
-            position: absolute; bottom: 0;
+		 position: absolute;
+		 bottom: 0;
             margin-top: 2px;
          }
          #minim_chat_window{
@@ -159,14 +160,14 @@
 <!--</iframe>-->
 
       <div class="container">
-         <div class="row chat-window col-xs-6 col-md-4" id="chat_window_1" style="margin-left:10px;">
+         <div class="row chat-window col-xs-12 col-sm-12 col-md-6 col-lg-5 col-xlg-4" id="chat_window_1" style="margin-left:10px;">
             <div class="col-xs-12 col-md-12">
                <div class="panel panel-default">
                   <div class="panel-heading top-bar">
-                     <div class="col-md-4 col-xs-4">
+                     <div class="col-md-5 col-xs-4">
                         <h3 class="panel-title"><i class="fa fa-circle" aria-hidden="true"></i><b>HR Bot</b></h3>
                      </div>
-                     <div class="col-md-8 col-xs-8" style="text-align: right;">
+                     <div class="col-md-7 col-xs-8" style="text-align: right;">
                         <ul class="list-inline">
                            <li><input id="speakinput" name="speak" type="checkbox" style="display:none" checked></li>
                            <li><a onClick="return toggleSpeak();" href="#" title="Enable speech (speech requires an HTML5 audio supporting browser, such as Chrome or Firefox)">
@@ -194,6 +195,15 @@
                   </div>
                </div>
                <script type="text/javascript">
+			   
+				function getCurrentTime() {
+					var d = new Date();
+					var h = d.getHours();
+					var min = d.getMinutes();
+					var sec = d.getSeconds();
+					var time = "" + h + ":" + min + ":" + sec;
+					return time;
+				}
                   SDK.applicationId = "7594789875752610230";
                   var sdk = new SDKConnection();
                   var web = new WebChatbotListener();
@@ -206,7 +216,7 @@
                    var interval = setInterval(function(){
                       var response = document.getElementById('response').innerHTML;
                       if(response != '<i>thinking</i>'){
-                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">3:36 PM</p></div>';
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">'+getCurrentTime()+'</p></div>';
                           $('#scroller-wrap').append(responseDiv);
                           //Scroll to bottom of div element
                           var scrollerWrap = document.getElementById("scroller-wrap");
@@ -650,7 +660,7 @@
                   });
                   
                   function setSenderMessage(){
-                    var responseDiv = ' <div class="msg_container base_sent"><div class="col-md-10 col-xs-10"><div class="messages msg_sent"><p id="sender">'+document.getElementById('chat').value+'</p></div></div><div class="col-md-2 col-xs-2 avatar hide"><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive "></div></div>';
+                    var responseDiv = ' <div class="msg_container base_sent"><div class="col-md-9 col-xs-9"><div class="messages msg_sent"><p id="sender">'+document.getElementById('chat').value+'</p></div></div><div class="col-md-2 col-xs-2 avatar hide"><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class=" img-responsive "></div></div>';
                     $('#scroller-wrap').append(responseDiv);
                     //Scroll to bottom of div element
                     var scrollerWrap = document.getElementById("scroller-wrap");
