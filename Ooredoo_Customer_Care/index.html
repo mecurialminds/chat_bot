@@ -46,11 +46,11 @@
          border-color:#eee;
          }
          .panel-default{
-         border: 1px solid #FF0000;
+         border: 1px solid #F60025;
          border-radius: 0px !important;
          }
          .top-bar{
-         background: #FF0000 !important;
+         background: #F60025 !important;
          color: #ffffff !important;
          padding: 5px;
          border-radius: 0px;
@@ -91,7 +91,7 @@
          box-shadow: none !important;
          }
          .msg_sent{
-         background: #FF0000;
+         background: #F60025;
          border-radius: 13px 13px 5px 13px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             /*border: 1px solid rgba(0,0,0,.2);*/
@@ -135,6 +135,7 @@
          }
          .avatar img{
          width: auto !important;
+		 height: 10px;
             position: absolute; bottom: 0;
             margin-top: 2px;
          }
@@ -145,8 +146,9 @@
          font-weight: normal;
          }
          body{    
-         background-image: url("images/ba.jpg");
+         background-image: url("images/bg-img.png");
          background-color: #ffffff;
+		 background-size: 100%;
          background-attachment: fixed;
          background-repeat: no-repeat;
          background-position: center;
@@ -154,9 +156,8 @@
       </style>
    </head>
    <body>
-   <iframe src="http://ooredoo.com/en/" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; ">
-</iframe>
-    <div class="container">
+   
+      <div class="container">
          <div class="row chat-window col-xs-6 col-md-4" id="chat_window_1" style="margin-left:10px;">
             <div class="col-xs-12 col-md-12">
                <div class="panel panel-default">
@@ -197,14 +198,14 @@
                   var web = new WebChatbotListener();
                   web.connection = sdk;
                   web.instance = '260485';
-                  web.instanceName = 'Ooredoo Customer Care';
+                  web.instanceName = 'HBL Test Bot';
                   $(document).ready(function () {
-				   		$('#chat').val('get greetings');
+                  		$('#chat').val('get greetings');
                   		web.sendMessage();
                    var interval = setInterval(function(){
                       var response = document.getElementById('response').innerHTML;
                       if(response != '<i>thinking</i>'){
-                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/ooredoo_logo.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">3:36 PM</p></div>';
+                        var responseDiv = '<div class="msg_container base_receive"><div class="col-md-2 col-xs-2 avatar"><img src="images/hbl_thumbnail.png" class="img-responsive"></div><div class="col-md-10 col-xs-10"><div class="messages msg_receive"><p>'+response+'</p></div><p style="font-size: x-small; margin: 3px 11px -15px;">3:36 PM</p></div>';
                           $('#scroller-wrap').append(responseDiv);
                           //Scroll to bottom of div element
                           var scrollerWrap = document.getElementById("scroller-wrap");
@@ -695,8 +696,9 @@
                     document.getElementById('speak').src = "images/icon_silent.png";
                   }
                   function toggleSpeak() {
-                    speakinput.checked = !speakinput.checked;
-                    if (speakinput.checked) {
+                    //speakinput.checked = !speakinput.checked;
+					web.toggleSpeak();
+                    if (web.speak) {
                       document.getElementById('speak').src = "images/icon_audio.png";
                     } else {
                       document.getElementById('speak').src = "images/icon_silent.png";

@@ -128,8 +128,8 @@ img {
     bottom:0;
 }
 .style-btn {
-    background-color: #FF0000;
-    border: 1px solid #FF0000;
+    background-color: red;
+    border: 1px solid red;
     margin: 0 0 3px 3px;
     width: 145px;
     color: white;
