@@ -1,0 +1,8 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.ooredoo.qa	TRUE	/portal	FALSE	1999999999	JSESSIONID	R7cLb1PZ4pN2ylF3HpBH66hNfQtrXYsLtvND4nW6rSsksbPcXLtF!1825633486
+www.ooredoo.qa	TRUE	/portal	FALSE	1999999999	TS0197215c	018749d2e95bdbe822af6ff0bac944e7c598ffd53d2536b99e2b9c4d317dd79fb7590122571123eb003fa1537cb72dd49f0108a5dee9ef928825a471f429088651f1045a5a
+.ooredoo.qa	TRUE	/	FALSE	1999999999	__cfduid	de560f8636f3f07c46ccae0e58b9d3d921539243822
+.brandirectory.com	TRUE	/	FALSE	1999999999	__cfduid	d26ed0e34dc6728cc993df0f3be6d0e061539243824
+www.ooredoo.qa	TRUE	/	FALSE	1999999999	TS01922929	018749d2e9dab8fadec78ae6ba06cdfea9b0fc35fe713a6ab7e3aa9edff6e93f0ed259a98ded30ef7c042816e665cd43512fdaa0f8
+
