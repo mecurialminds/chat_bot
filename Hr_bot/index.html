@@ -145,26 +145,23 @@
          font-weight: normal;
          }
          body{    
-         background-image: url("images/bg-img.jpg");
+         background-image: url("images/bg-img.png");
          background-color: #ffffff;
          background-attachment: fixed;
          background-repeat: no-repeat;
-         background-position: center;
+         //background-position: center;
+		 background-size: 100%;
          }
       </style>
    </head>
    <body>
-   <!--<iframe src="http://www.hbl.com" style="position:fixed; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; ">
-   <!-- Your browser doesn't support iframes -->
-<!--</iframe>-->
-
-      <div class="container">
+    <div class="container">
          <div class="row chat-window col-xs-6 col-md-4" id="chat_window_1" style="margin-left:10px;">
             <div class="col-xs-12 col-md-12">
                <div class="panel panel-default">
                   <div class="panel-heading top-bar">
                      <div class="col-md-4 col-xs-4">
-                        <h3 class="panel-title"><i class="fa fa-circle" aria-hidden="true"></i><b>HBL HR</b></h3>
+                        <h3 class="panel-title"><i class="fa fa-circle" aria-hidden="true"></i><b>HR Bot</b></h3>
                      </div>
                      <div class="col-md-8 col-xs-8" style="text-align: right;">
                         <ul class="list-inline">
@@ -198,8 +195,8 @@
                   var sdk = new SDKConnection();
                   var web = new WebChatbotListener();
                   web.connection = sdk;
-                  web.instance = '162857';
-                  web.instanceName = 'HBL HR Bot';
+                  web.instance = '660268';
+                  web.instanceName = 'HR Bot';
                   $(document).ready(function () {
 				   		$('#chat').val('get greetings');
                   		web.sendMessage();
@@ -216,7 +213,7 @@
                       }
                     }, 500);
                      web.nativeVoice = true;
-                  web.nativeVoiceName = "Google UK English Female";
+                  web.nativeVoiceName = "Google English";
                   SDK.updateAvatar = function(responseMessage, speak, urlprefix, elementPrefix, channelaudio, afterFunction, nativeVoice, lang, voice) {
                   try {
                   
@@ -697,9 +694,8 @@
                     document.getElementById('speak').src = "images/icon_silent.png";
                   }
                   function toggleSpeak() {
-                    //speakinput.checked = !speakinput.checked;
-					web.toggleSpeak();
-                    if (web.speak) {
+                    speakinput.checked = !speakinput.checked;
+                    if (speakinput.checked) {
                       document.getElementById('speak').src = "images/icon_audio.png";
                     } else {
                       document.getElementById('speak').src = "images/icon_silent.png";
@@ -707,7 +703,7 @@
                   }
                   
                   function MaximizeChatWindow(){
-                    window.open("https://bots.mercurialminds.com/chat?&id=162857&embedded=true&chatLog=true&facebookLogin=false&showLink=false&application=7594789875752610230&bubble=true&menubar=true&chooseLanguage=true&sendImage=true&background=%23fff&prompt=You+say&send=Send&css=https://bots.mercurialminds.com/css/chatlog.css", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=500,width=800,height=800");
+                    window.open("https://bots.mercurialminds.com/chat?&id=660268&embedded=true&chatLog=true&facebookLogin=false&showLink=false&application=7594789875752610230&bubble=true&menubar=true&chooseLanguage=true&sendImage=true&background=%23fff&prompt=You+say&send=Send&css=https://bots.mercurialminds.com/css/chatlog.css", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=0,left=500,width=800,height=800");
                   }
                   $(document).on('click', '.msg_receive button', function(){
                      $('#chat').val($(this).text());                        
